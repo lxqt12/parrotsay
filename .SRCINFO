@@ -1,0 +1,7 @@
+pkgbase = parrotsay
+	pkgdesc = A cowsay clone because they didn't add a parrot...
+	pkgver = 0.1.0
+	pkgrel = 1
+	arch = any
+
+pkgname = parrotsay

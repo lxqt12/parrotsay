@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import sys
+import textwrap
+
+PARROT = r"""         .--.
+          /  6_6
+          \  (__\
+         //   \\
+        ((     ))
+  =======""===""===============
+           |||
+           |||
+           '|'
+            '"""
+
+def main():
+    if len(sys.argv) > 1:
+        message = " ".join(sys.argv[1:])
+    else:
+        message = sys.stdin.read().rstrip("\n")
+
+    if not message:
+        return
+
+    lines = []
+    for part in message.splitlines():
+        lines.extend(textwrap.wrap(part, width=60) or [""])
+
+    width = max(len(line) for line in lines)
+
+    print(" " + "_" * (width + 2))
+    for line in lines:
+        print(f"< {line.ljust(width)} >")
+    print(" " + "-" * (width + 2))
+    print(PARROT)
+
+if __name__ == "__main__":
+    main()
